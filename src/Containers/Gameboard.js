@@ -48,7 +48,7 @@ class Gameboard extends Component {
       } )
     } else {
       this.setState({
-        notification: 'guess must be a four digit number between 0 and 7'
+        notification: `guess must be a four digit number between 0 and ${this.props.max}`
       })
     }
   }
@@ -65,7 +65,7 @@ class Gameboard extends Component {
     }
     for (let i = 0; i < guess.length; i ++ ) {
       let digit = guess[i]
-      if (Number(digit) === 8 || Number(digit) === 9) {
+      if (Number(digit) > this.props.max) {
         isValid = false
       } else {
         if (!guessObject.hasOwnProperty(digit)) {
@@ -172,7 +172,9 @@ class Gameboard extends Component {
               <div style={{margin: '10px 20px'}}>
                 <TextDisplay text='Username' value={this.props.username} />
                 <TextDisplay text='Guesses Left' value={this.state.guessesLeft} />
-                {/* <TextDisplay text='Secret Code' value={this.props.secretCode} /> */}
+                <TextDisplay text='Level' value={this.props.level} />
+                <TextDisplay text='Viable Range' value={`0 - ${this.props.max}`} />
+                <TextDisplay text='Secret Code' value={this.props.secretCode} />
                 <Input
                   text='Current Guess'
                   id='currentGuess'

@@ -20,7 +20,8 @@ class Game extends Component {
     live: false,
     username: '',
     level: '',
-    secretCode: null
+    secretCode: null,
+    max: 7
   }
 
   showModal(e) {
@@ -39,23 +40,21 @@ class Game extends Component {
 
   createNewGame(gameSettings) {
     let { username, level } = gameSettings
-    this.generateCode()
+    let max = level === 'normal' ? 7 : level === 'nightmare' ? 8 : 9
+    let url = `https://www.random.org/integers/?num=4&min=0&max=${max}&col=1&base=10&format=plain&rnd=new`
+    axios.get(url)
+      .then((response) => {
+        return response.data.split('\n').slice(0, 4).join('')
+      })
       .then(code => {
         this.setState({
           ...this.state,
           secretCode: code,
           username: username,
           level: level,
-          live: true
+          live: true,
+          max: max
         })
-      })
-  }
-
-  generateCode() {
-    let url = 'https://www.random.org/integers/?num=4&min=0&max=7&col=1&base=10&format=plain&rnd=new'
-    return axios.get(url)
-      .then((response) => {
-        return response.data.split('\n').slice(0, 4).join('')
       })
       .catch(error => console.log(`error getting code: ${error}`))
   }
@@ -71,8 +70,10 @@ class Game extends Component {
     <GameSettings onCreateNewGame={this.createNewGame.bind(this)} /> :
     <Gameboard
       username={this.state.username}
+      level={this.state.level}
       onExitGame={this.exitGame.bind(this)}
       secretCode={this.state.secretCode}
+      max={this.state.max}
     />
 
     return (
