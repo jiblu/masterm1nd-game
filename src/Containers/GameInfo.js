@@ -123,9 +123,9 @@ class GameInfo extends Component {
   render ()  {
     switch(this.state.status) {
       case 'win':
-        return <ResultPage result='You Win!' />
+        return <ResultPage result='You Win!' exitGame={this.props.onExitGame}/>
       case 'lose':
-        return <ResultPage result='You Lose!' />
+        return <ResultPage result='You Lose!' exitGame={this.props.onExitGame}/>
       default:
         return (
           <Settings>
