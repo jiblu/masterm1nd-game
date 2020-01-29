@@ -1,28 +1,15 @@
-import React, { Component } from 'react'
-import { Switch, Route, withRouter } from 'react-router-dom'
+import React from 'react'
 import Header from './Components/Header'
 import Game from './Containers/Game'
-import Rules from './Containers/Rules'
 import './App.css'
 
-class App extends Component {
-  render () {
-    return (
-      <div>
-        <Header />
-        <Switch>
-          <Route
-            path='/'
-            render={() => <Game />}
-          />
-          <Route
-            path='/rules'
-            render={() => <Rules />}
-          />
-        </Switch>
-      </div>
-    )
-  }
+const App = props => {
+  return (
+    <div>
+      <Header />
+      <Game />
+    </div>
+  )
 }
 
-export default withRouter(App)
+export default App

@@ -8,6 +8,7 @@ import Text from '../Components/Text'
 import Button from '../Components/Button'
 import Guesses from './Guesses'
 import ResultPage from './ResultPage'
+import TextDisplay from '../Components/TextDisplay'
 
 const Settings = styled.div`
   margin: 15px;
@@ -35,6 +36,7 @@ class Gameboard extends Component {
         let guessesLeft = 10 - this.state.guesses.length
         if (guessesLeft === 0) {
           this.setState({
+            guessesLeft: 10 - this.state.guesses.length,
             status: 'lose'
           })
         } else {
@@ -129,9 +131,29 @@ class Gameboard extends Component {
   render ()  {
     switch(this.state.status) {
       case 'win':
-        return <ResultPage result='You Win!' exitGame={this.props.onExitGame}/>
+        return (
+          <ResultPage
+            result='You Win!'
+            exitGame={this.props.onExitGame}
+            secretCode={this.state.secretCode}
+            guessesLeft={this.state.guessesLeft}
+            username={this.props.username}
+          >
+            <Guesses guesses={this.state.guesses} />
+          </ResultPage>
+        )
       case 'lose':
-        return <ResultPage result='You Lose!' exitGame={this.props.onExitGame}/>
+        return (
+          <ResultPage
+            result='You Lose!'
+            exitGame={this.props.onExitGame}
+            secretCode={this.state.secretCode}
+            guessesLeft={this.state.guessesLeft}
+            username={this.props.username}
+          >
+            <Guesses guesses={this.state.guesses} />
+          </ResultPage>
+        )
       default:
         return (
           <Settings>
@@ -148,9 +170,9 @@ class Gameboard extends Component {
                 I give up!
               </Button>
               <div style={{margin: '10px 20px'}}>
-                <div>Guesses Left: {this.state.guessesLeft}</div>
-                <div>Username: {this.props.username}</div>
-                <div>SecretCode: {JSON.stringify(this.props.secretCode)}</div>
+                <TextDisplay text='Username' value={this.props.username} />
+                <TextDisplay text='Guesses Left' value={this.state.guessesLeft} />
+                <TextDisplay text='Secret Code' value={this.props.secretCode} />
                 <Input
                   text='Current Guess'
                   id='currentGuess'
@@ -158,7 +180,13 @@ class Gameboard extends Component {
                   onChangeHandler={this.onChangeHandler.bind(this)}
                   value={this.state.currentGuess}
                 />
-                {this.state.notification}
+                <Text
+                  margin='10px 0'
+                  color='primary'
+                  size='medium'
+                >
+                  {this.state.notification}
+                </Text>
               </div>
               <Button
                 id='submitGuess'
