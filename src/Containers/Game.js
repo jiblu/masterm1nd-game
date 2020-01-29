@@ -85,6 +85,7 @@ class Game extends Component {
         </Stack>
         {metaData}
         <Rodal
+          height='300'
           visible={this.state.showrules}
           onClose={this.hideModal.bind(this)}
         >
