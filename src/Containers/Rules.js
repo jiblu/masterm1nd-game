@@ -18,9 +18,7 @@ const Rules = props => (
     <Stack align='flex-start'>
       <ul>
         <li><Text size='smaller'>You start with 100 points</Text></li>
-        <li><Text size='smaller'>10 points deducted if 0 "Numbers" and 0 "Numbers and Places" in one guess</Text></li>
-        <li><Text size='smaller'>1 point added for each "Numbers" count in one guess</Text></li>
-        <li><Text size='smaller'>2 points added for each "Numbers and Places" count in one guess </Text></li>
+        <li><Text size='smaller'>10 points deducted for each round of incorrect guesses</Text></li>
       </ul>
     </Stack>
     <Text size='smaller' color='secondary'>*Increase level to increase viable number range</Text>
