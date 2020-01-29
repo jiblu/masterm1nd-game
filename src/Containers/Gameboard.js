@@ -172,7 +172,7 @@ class Gameboard extends Component {
               <div style={{margin: '10px 20px'}}>
                 <TextDisplay text='Username' value={this.props.username} />
                 <TextDisplay text='Guesses Left' value={this.state.guessesLeft} />
-                <TextDisplay text='Secret Code' value={this.props.secretCode} />
+                {/* <TextDisplay text='Secret Code' value={this.props.secretCode} /> */}
                 <Input
                   text='Current Guess'
                   id='currentGuess'
