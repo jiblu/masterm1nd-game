@@ -9,10 +9,10 @@ import Stack from '../Components/Stack'
 import Rules from '../Containers/Rules'
 import Leaderboard from '../Containers/Leaderboard'
 import GameSettings from '../Containers/GameSettings'
-import GameInfo from '../Containers/GameInfo'
+import Gameboard from '../Containers/Gameboard'
 
 
-class Welcome extends Component {
+class Game extends Component {
   state = {
     showrules: false,
     showleaderboard: false,
@@ -69,7 +69,7 @@ class Welcome extends Component {
   render () {
     let metaData = !this.state.live ?
     <GameSettings onCreateNewGame={this.createNewGame.bind(this)} /> :
-    <GameInfo
+    <Gameboard
       username={this.state.username}
       onExitGame={this.exitGame.bind(this)}
       secretCode={this.state.secretCode}
@@ -106,4 +106,4 @@ class Welcome extends Component {
   }
 }
 
-export default Welcome
+export default Game

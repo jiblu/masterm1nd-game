@@ -16,7 +16,7 @@ const Settings = styled.div`
   border-radius: ${Metrics.radiusSmall}px;
 `
 
-class GameInfo extends Component {
+class Gameboard extends Component {
   state = {
     guesses: [],
     currentGuess: '',
@@ -174,4 +174,4 @@ class GameInfo extends Component {
   }
 }
 
-export default GameInfo
+export default Gameboard

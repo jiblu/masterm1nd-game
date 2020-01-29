@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route, withRouter } from 'react-router-dom'
 import Header from './Components/Header'
-import Welcome from './Containers/Welcome'
+import Game from './Containers/Game'
 import Rules from './Containers/Rules'
 import './App.css'
 
@@ -13,7 +13,7 @@ class App extends Component {
         <Switch>
           <Route
             path='/'
-            render={() => <Welcome />}
+            render={() => <Game />}
           />
           <Route
             path='/rules'
