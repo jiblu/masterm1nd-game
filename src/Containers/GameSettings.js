@@ -6,6 +6,7 @@ import Stack from '../Components/Stack'
 import Input from '../Components/Input'
 import Text from '../Components/Text'
 import Button from '../Components/Button'
+import Dropdown from '../Components/Dropdown'
 
 const Settings = styled.div`
   margin: 15px;
@@ -17,7 +18,7 @@ const Settings = styled.div`
 class GameSettings extends Component {
   state = {
     username: 'guest',
-    level: 1
+    level: 'normal'
   }
 
   onChangeHandler(id, e) {
@@ -27,6 +28,7 @@ class GameSettings extends Component {
   }
 
   render () {
+    const levels = ['normal', 'nightmare', 'hell']
     return (
       <Settings>
         <Stack vertical align='center'>
@@ -42,11 +44,11 @@ class GameSettings extends Component {
               placeholder='leave blank for guest'
               onChangeHandler={this.onChangeHandler.bind(this)}
             />
-            <Input
+            <Dropdown
               text='level'
               id='level'
-              placeholder='choose between 1-10'
               onChangeHandler={this.onChangeHandler.bind(this)}
+              list={levels}
             />
           </div>
           <Button
