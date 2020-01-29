@@ -19,7 +19,8 @@ class GameInfo extends Component {
   state = {
     guesses: [],
     currentGuess: '',
-    notification: ''
+    notification: '',
+    secretCode: this.props.secretCode
   }
 
   onSubmitGuess() {
@@ -33,6 +34,18 @@ class GameInfo extends Component {
         notification: 'guess must be a four digit number'
       })
     }
+  }
+
+  createGuessObject(guess) {
+    let { secretCode } = this.props
+    let guessObject = {
+      guess: guess,
+      guessFeeback: {
+        numPlace: 0,
+        place: 0
+      }
+    }
+    
   }
 
   validateGuess(guess) {
