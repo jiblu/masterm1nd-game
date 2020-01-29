@@ -8,7 +8,7 @@ const Select = styled.select`
   background-color: ${Colors.light};
   color: ${Colors.secondary};
   border-radius: calc(${Metrics.radiusSmall}px - 2px);
-  font-size: ${Metrics.fontSize.small}px;
+  font-size: ${Metrics.fontSize.smaller}px;
   width: ${Metrics.buttonWidth + 14}px;
   margin: 5px;
   padding: 5px;
