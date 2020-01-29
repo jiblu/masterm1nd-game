@@ -31,7 +31,8 @@ class GameInfo extends Component {
         notification: ''
       }, () => {
         this.setState({
-          guessesLeft: 10 - this.state.guesses.length
+          guessesLeft: 10 - this.state.guesses.length,
+          currentGuess: ''
         })
       } )
     } else {
@@ -135,6 +136,7 @@ class GameInfo extends Component {
               id='currentGuess'
               placeholder='please enter four digit number'
               onChangeHandler={this.onChangeHandler.bind(this)}
+              value={this.state.currentGuess}
             />
             {this.state.notification}
           </div>
@@ -145,7 +147,6 @@ class GameInfo extends Component {
             Submit Guess
           </Button>
           <Guesses guesses={this.state.guesses} />
-          {JSON.stringify(this.state.guesses)}
         </Stack>
       </Settings>
     )

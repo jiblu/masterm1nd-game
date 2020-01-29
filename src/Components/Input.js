@@ -22,6 +22,7 @@ const Input = props => {
       <InputField
         placeholder={props.placeholder}
         onChange={(e) => props.onChangeHandler(props.id, e)}
+        value={props.value}
       />
     </div>
   )
