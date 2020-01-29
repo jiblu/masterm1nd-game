@@ -32,10 +32,17 @@ class GameInfo extends Component {
       this.setState({
         notification: ''
       }, () => {
-        this.setState({
-          guessesLeft: 10 - this.state.guesses.length,
-          currentGuess: ''
-        })
+        let guessesLeft = 10 - this.state.guesses.length
+        if (guessesLeft === 0) {
+          this.setState({
+            status: 'lose'
+          })
+        } else {
+          this.setState({
+            guessesLeft: 10 - this.state.guesses.length,
+            currentGuess: ''
+          })
+        }
       } )
     } else {
       this.setState({
@@ -90,7 +97,6 @@ class GameInfo extends Component {
               correctNums--
             }
             if (correctNumPlaces === 4) {
-              console.log(`You win! Secret code was ${secretCode}`)
               this.setState({
                 status: 'win'
               })
