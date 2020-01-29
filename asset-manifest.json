@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/masterm1nd-game/static/css/main.d1b05096.chunk.css",
-    "main.js": "/masterm1nd-game/static/js/main.aaafb100.chunk.js",
-    "main.js.map": "/masterm1nd-game/static/js/main.aaafb100.chunk.js.map",
+    "main.js": "/masterm1nd-game/static/js/main.39e050a8.chunk.js",
+    "main.js.map": "/masterm1nd-game/static/js/main.39e050a8.chunk.js.map",
     "runtime-main.js": "/masterm1nd-game/static/js/runtime-main.ce9ae0cf.js",
     "runtime-main.js.map": "/masterm1nd-game/static/js/runtime-main.ce9ae0cf.js.map",
     "static/css/2.4364cc03.chunk.css": "/masterm1nd-game/static/css/2.4364cc03.chunk.css",
-    "static/js/2.8c12bf59.chunk.js": "/masterm1nd-game/static/js/2.8c12bf59.chunk.js",
-    "static/js/2.8c12bf59.chunk.js.map": "/masterm1nd-game/static/js/2.8c12bf59.chunk.js.map",
+    "static/js/2.7f8ee51c.chunk.js": "/masterm1nd-game/static/js/2.7f8ee51c.chunk.js",
+    "static/js/2.7f8ee51c.chunk.js.map": "/masterm1nd-game/static/js/2.7f8ee51c.chunk.js.map",
     "index.html": "/masterm1nd-game/index.html",
-    "precache-manifest.32a03ff8e0563a952547ff9e696aef81.js": "/masterm1nd-game/precache-manifest.32a03ff8e0563a952547ff9e696aef81.js",
+    "precache-manifest.17cb0f35c64848b2f4236d2f7ddb272f.js": "/masterm1nd-game/precache-manifest.17cb0f35c64848b2f4236d2f7ddb272f.js",
     "service-worker.js": "/masterm1nd-game/service-worker.js",
     "static/css/2.4364cc03.chunk.css.map": "/masterm1nd-game/static/css/2.4364cc03.chunk.css.map",
     "static/css/main.d1b05096.chunk.css.map": "/masterm1nd-game/static/css/main.d1b05096.chunk.css.map",
-    "static/js/2.8c12bf59.chunk.js.LICENSE": "/masterm1nd-game/static/js/2.8c12bf59.chunk.js.LICENSE"
+    "static/js/2.7f8ee51c.chunk.js.LICENSE": "/masterm1nd-game/static/js/2.7f8ee51c.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.ce9ae0cf.js",
     "static/css/2.4364cc03.chunk.css",
-    "static/js/2.8c12bf59.chunk.js",
+    "static/js/2.7f8ee51c.chunk.js",
     "static/css/main.d1b05096.chunk.css",
-    "static/js/main.aaafb100.chunk.js"
+    "static/js/main.39e050a8.chunk.js"
   ]
 }
