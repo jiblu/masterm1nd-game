@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f9e53c1c282e265aa3b6dc986a4906d3",
+    "revision": "54881e004a1b97e7eea5e8f0b5c4f39c",
     "url": "/masterm1nd-game/index.html"
   },
   {
-    "revision": "6acc2f1ea25a86983863",
+    "revision": "aeecb27c925d528a037d",
     "url": "/masterm1nd-game/static/css/2.4364cc03.chunk.css"
   },
   {
-    "revision": "5ade1eb7f36d99313ff4",
+    "revision": "47270824ff52cf6b5300",
     "url": "/masterm1nd-game/static/css/main.d1b05096.chunk.css"
   },
   {
-    "revision": "6acc2f1ea25a86983863",
-    "url": "/masterm1nd-game/static/js/2.69acebf4.chunk.js"
+    "revision": "aeecb27c925d528a037d",
+    "url": "/masterm1nd-game/static/js/2.8c12bf59.chunk.js"
   },
   {
     "revision": "a7e9e012a3f716fd81cf8afb9ff9cff5",
-    "url": "/masterm1nd-game/static/js/2.69acebf4.chunk.js.LICENSE"
+    "url": "/masterm1nd-game/static/js/2.8c12bf59.chunk.js.LICENSE"
   },
   {
-    "revision": "5ade1eb7f36d99313ff4",
-    "url": "/masterm1nd-game/static/js/main.b1092c04.chunk.js"
+    "revision": "47270824ff52cf6b5300",
+    "url": "/masterm1nd-game/static/js/main.8d42277b.chunk.js"
   },
   {
     "revision": "59fe020a717477317d10",
