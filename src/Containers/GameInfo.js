@@ -20,7 +20,8 @@ class GameInfo extends Component {
     guesses: [],
     currentGuess: '',
     notification: '',
-    secretCode: this.props.secretCode
+    secretCode: this.props.secretCode,
+    guessesLeft: 10
   }
 
   onSubmitGuess() {
@@ -28,7 +29,11 @@ class GameInfo extends Component {
     if (this.validateGuess(guessString)) {
       this.setState({
         notification: ''
-      })
+      }, () => {
+        this.setState({
+          guessesLeft: 10 - this.state.guesses.length
+        })
+      } )
     } else {
       this.setState({
         notification: 'guess must be a four digit number'
@@ -36,20 +41,13 @@ class GameInfo extends Component {
     }
   }
 
-  createGuessObject(guess) {
-    let { secretCode } = this.props
-    let guessObject = {
-      guess: guess,
-      guessFeeback: {
-        numPlace: 0,
-        place: 0
-      }
-    }
-    
-  }
-
   validateGuess(guess) {
     let isValid = true
+    let guessObject = {}
+    let secretCodeObject = {}
+    let correctNums = 0
+    let correctNumPlaces = 0
+    let { secretCode } = this.state
     if (guess.length !== 4 || isNaN(guess)) {
       return false
     }
@@ -57,9 +55,53 @@ class GameInfo extends Component {
       let digit = guess[i]
       if (Number(digit) === 8 || Number(digit) === 9) {
         isValid = false
+      } else {
+        if (!guessObject.hasOwnProperty(digit)) {
+          guessObject[digit] = {}
+          guessObject[digit].indices = {[i]:i}
+          guessObject[digit].count = 1
+        } else {
+          guessObject[digit].indices[i] = i
+          guessObject[digit].count++
+        }
       }
     }
-    console.log(`is valid: ${isValid}`)
+    if (isValid) {
+      for (let i = 0; i < secretCode.length; i ++) {
+        let digit = secretCode[i]
+        if (!secretCodeObject.hasOwnProperty(digit)){
+          secretCodeObject[digit] = {}
+          secretCodeObject[digit].indices = {[i]:i}
+          secretCodeObject[digit].count = 1
+        } else {
+          secretCodeObject[digit].indices[i] = i
+          secretCodeObject[digit].count++
+        }
+      }
+      for (let digit in secretCodeObject) {
+        if (guessObject.hasOwnProperty(digit)) {
+          correctNums+= Math.min(secretCodeObject[digit].count,guessObject[digit].count)
+          for (let index in secretCodeObject[digit].indices){
+            if (guessObject[digit].indices.hasOwnProperty(index)) {
+              correctNumPlaces++
+              correctNums--
+            }
+          }
+        }
+      }
+      let newGuesses = this.state.guesses.slice(0)
+      let newGuess = {
+        guess: guess,
+        feedback: {
+          nums: correctNums,
+          numPlaces: correctNumPlaces
+        }
+      }
+      newGuesses.push(newGuess)
+      this.setState({
+        guesses: newGuesses
+      })
+    }
     return isValid
   }
 
@@ -85,7 +127,7 @@ class GameInfo extends Component {
             I give up!
           </Button>
           <div style={{margin: '10px 20px'}}>
-            <div>Guesses Left: {this.props.guessesLeft}</div>
+            <div>Guesses Left: {this.state.guessesLeft}</div>
             <div>Username: {this.props.username}</div>
             <div>SecretCode: {JSON.stringify(this.props.secretCode)}</div>
             <Input
@@ -103,6 +145,7 @@ class GameInfo extends Component {
             Submit Guess
           </Button>
           <Guesses guesses={this.state.guesses} />
+          {JSON.stringify(this.state.guesses)}
         </Stack>
       </Settings>
     )

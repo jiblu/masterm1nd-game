@@ -20,7 +20,6 @@ class Welcome extends Component {
     live: false,
     username: '',
     level: '',
-    guessesLeft: 10,
     secretCode: null
   }
 
@@ -72,7 +71,6 @@ class Welcome extends Component {
     <GameSettings onCreateNewGame={this.createNewGame.bind(this)} /> :
     <GameInfo
       username={this.state.username}
-      guessesLeft={this.state.guessesLeft}
       onExitGame={this.exitGame.bind(this)}
       secretCode={this.state.secretCode}
     />
