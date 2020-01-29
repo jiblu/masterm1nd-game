@@ -15,6 +15,7 @@ const ResultPage = props => {
         <Text size='medium'>
           {props.result}
         </Text>
+        <TextDisplay text='Your Score' value={props.score} />
         <TextDisplay text='Username' value={props.username} />
         <TextDisplay text='Guesses Used' value={`${(10 - props.guessesLeft)} / 10`} />
         <TextDisplay text='Secret Code' value={props.secretCode} />

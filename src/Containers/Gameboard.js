@@ -24,8 +24,7 @@ class Gameboard extends Component {
     notification: '',
     status: 'playing',
     secretCode: this.props.secretCode,
-    guessesLeft: 10,
-    score: 0
+    guessesLeft: 10
   }
 
   onSubmitGuess() {
@@ -139,6 +138,7 @@ class Gameboard extends Component {
             secretCode={this.state.secretCode}
             guessesLeft={this.state.guessesLeft}
             username={this.props.username}
+            score={`${this.state.guessesLeft * 10}%`}
           >
             <Guesses guesses={this.state.guesses} />
           </ResultPage>
@@ -151,6 +151,7 @@ class Gameboard extends Component {
             secretCode={this.state.secretCode}
             guessesLeft={this.state.guessesLeft}
             username={this.props.username}
+            score={`${this.state.guessesLeft * 10}%`}
           >
             <Guesses guesses={this.state.guesses} />
           </ResultPage>
