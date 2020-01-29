@@ -37,7 +37,7 @@ class GameInfo extends Component {
       } )
     } else {
       this.setState({
-        notification: 'guess must be a four digit number'
+        notification: 'guess must be a four digit number between 0 and 7'
       })
     }
   }
@@ -118,7 +118,7 @@ class GameInfo extends Component {
         <Stack vertical align='center'>
           <Stack align='center'>
             <SettingsIcon color='action' />
-            <Text size='medium' color='secondary'>Game Settings</Text>
+            <Text size='medium' color='secondary'>Game</Text>
             <SettingsIcon color='action' />
           </Stack>
           <Button
