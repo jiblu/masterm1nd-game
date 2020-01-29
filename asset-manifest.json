@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/masterm1nd-game/static/css/main.d1b05096.chunk.css",
+    "main.js": "/masterm1nd-game/static/js/main.b1092c04.chunk.js",
+    "main.js.map": "/masterm1nd-game/static/js/main.b1092c04.chunk.js.map",
+    "runtime-main.js": "/masterm1nd-game/static/js/runtime-main.ce9ae0cf.js",
+    "runtime-main.js.map": "/masterm1nd-game/static/js/runtime-main.ce9ae0cf.js.map",
+    "static/css/2.4364cc03.chunk.css": "/masterm1nd-game/static/css/2.4364cc03.chunk.css",
+    "static/js/2.69acebf4.chunk.js": "/masterm1nd-game/static/js/2.69acebf4.chunk.js",
+    "static/js/2.69acebf4.chunk.js.map": "/masterm1nd-game/static/js/2.69acebf4.chunk.js.map",
+    "index.html": "/masterm1nd-game/index.html",
+    "precache-manifest.a2a65ab337f4859fea434e01fa30d4fa.js": "/masterm1nd-game/precache-manifest.a2a65ab337f4859fea434e01fa30d4fa.js",
+    "service-worker.js": "/masterm1nd-game/service-worker.js",
+    "static/css/2.4364cc03.chunk.css.map": "/masterm1nd-game/static/css/2.4364cc03.chunk.css.map",
+    "static/css/main.d1b05096.chunk.css.map": "/masterm1nd-game/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.69acebf4.chunk.js.LICENSE": "/masterm1nd-game/static/js/2.69acebf4.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ce9ae0cf.js",
+    "static/css/2.4364cc03.chunk.css",
+    "static/js/2.69acebf4.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.b1092c04.chunk.js"
+  ]
+}
