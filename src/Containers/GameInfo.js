@@ -7,6 +7,7 @@ import Input from '../Components/Input'
 import Text from '../Components/Text'
 import Button from '../Components/Button'
 import Guesses from './Guesses'
+import ResultPage from './ResultPage'
 
 const Settings = styled.div`
   margin: 15px;
@@ -20,6 +21,7 @@ class GameInfo extends Component {
     guesses: [],
     currentGuess: '',
     notification: '',
+    status: 'playing',
     secretCode: this.props.secretCode,
     guessesLeft: 10
   }
@@ -87,6 +89,12 @@ class GameInfo extends Component {
               correctNumPlaces++
               correctNums--
             }
+            if (correctNumPlaces === 4) {
+              console.log(`You win! Secret code was ${secretCode}`)
+              this.setState({
+                status: 'win'
+              })
+            }
           }
         }
       }
@@ -113,43 +121,50 @@ class GameInfo extends Component {
   }
 
   render ()  {
-    return (
-      <Settings>
-        <Stack vertical align='center'>
-          <Stack align='center'>
-            <SettingsIcon color='action' />
-            <Text size='medium' color='secondary'>Game</Text>
-            <SettingsIcon color='action' />
-          </Stack>
-          <Button
-            id='confirmexit'
-            onClick={(e) => this.props.onExitGame(e)}
-          >
-            I give up!
-          </Button>
-          <div style={{margin: '10px 20px'}}>
-            <div>Guesses Left: {this.state.guessesLeft}</div>
-            <div>Username: {this.props.username}</div>
-            <div>SecretCode: {JSON.stringify(this.props.secretCode)}</div>
-            <Input
-              text='Current Guess'
-              id='currentGuess'
-              placeholder='please enter four digit number'
-              onChangeHandler={this.onChangeHandler.bind(this)}
-              value={this.state.currentGuess}
-            />
-            {this.state.notification}
-          </div>
-          <Button
-            id='submitGuess'
-            onClick={this.onSubmitGuess.bind(this)}
-          >
-            Submit Guess
-          </Button>
-          <Guesses guesses={this.state.guesses} />
-        </Stack>
-      </Settings>
-    )
+    switch(this.state.status) {
+      case 'win':
+        return <ResultPage result='You Win!' />
+      case 'lose':
+        return <ResultPage result='You Lose!' />
+      default:
+        return (
+          <Settings>
+            <Stack vertical align='center'>
+              <Stack align='center'>
+                <SettingsIcon color='action' />
+                <Text size='medium' color='secondary'>Game</Text>
+                <SettingsIcon color='action' />
+              </Stack>
+              <Button
+                id='confirmexit'
+                onClick={(e) => this.props.onExitGame(e)}
+              >
+                I give up!
+              </Button>
+              <div style={{margin: '10px 20px'}}>
+                <div>Guesses Left: {this.state.guessesLeft}</div>
+                <div>Username: {this.props.username}</div>
+                <div>SecretCode: {JSON.stringify(this.props.secretCode)}</div>
+                <Input
+                  text='Current Guess'
+                  id='currentGuess'
+                  placeholder='please enter four digit number'
+                  onChangeHandler={this.onChangeHandler.bind(this)}
+                  value={this.state.currentGuess}
+                />
+                {this.state.notification}
+              </div>
+              <Button
+                id='submitGuess'
+                onClick={this.onSubmitGuess.bind(this)}
+              >
+                Submit Guess
+              </Button>
+              <Guesses guesses={this.state.guesses} />
+            </Stack>
+          </Settings>
+      )
+    }
   }
 }
 
