@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import Rodal from 'rodal'
 import 'rodal/lib/rodal.css'
 import PageDiv from '../Components/PageDiv'
@@ -19,7 +20,8 @@ class Welcome extends Component {
     live: false,
     username: '',
     level: '',
-    guessesLeft: 10
+    guessesLeft: 10,
+    secretCode: null
   }
 
   showModal(e) {
@@ -37,14 +39,26 @@ class Welcome extends Component {
   }
 
   createNewGame(gameSettings) {
-    for (let setting in gameSettings) {
-      this.setState({
-        [setting]: gameSettings[setting]
+    let { username, level } = gameSettings
+    this.generateCode()
+      .then(code => {
+        this.setState({
+          ...this.state,
+          secretCode: code,
+          username: username,
+          level: level,
+          live: true
+        })
       })
-    }
-    this.setState({
-      live: true
-    })
+  }
+
+  generateCode() {
+    let url = 'https://www.random.org/integers/?num=4&min=0&max=7&col=1&base=10&format=plain&rnd=new'
+    return axios.get(url)
+      .then((response) => {
+        return response.data.split('\n').slice(0, 4).join('')
+      })
+      .catch(error => console.log(`error getting code: ${error}`))
   }
 
   exitGame() {
@@ -60,6 +74,7 @@ class Welcome extends Component {
       username={this.state.username}
       guessesLeft={this.state.guessesLeft}
       onExitGame={this.exitGame.bind(this)}
+      secretCode={this.state.secretCode}
     />
 
     return (

@@ -6,6 +6,7 @@ import Stack from '../Components/Stack'
 import Input from '../Components/Input'
 import Text from '../Components/Text'
 import Button from '../Components/Button'
+import Guesses from './Guesses'
 
 const Settings = styled.div`
   margin: 15px;
@@ -17,11 +18,36 @@ const Settings = styled.div`
 class GameInfo extends Component {
   state = {
     guesses: [],
-    currentGuess: ''
+    currentGuess: '',
+    notification: ''
   }
 
-  guessValidator(guess) {
+  onSubmitGuess() {
+    let guessString = this.state.currentGuess
+    if (this.validateGuess(guessString)) {
+      this.setState({
+        notification: ''
+      })
+    } else {
+      this.setState({
+        notification: 'guess must be a four digit number'
+      })
+    }
+  }
 
+  validateGuess(guess) {
+    let isValid = true
+    if (guess.length !== 4 || isNaN(guess)) {
+      return false
+    }
+    for (let i = 0; i < guess.length; i ++ ) {
+      let digit = guess[i]
+      if (Number(digit) === 8 || Number(digit) === 9) {
+        isValid = false
+      }
+    }
+    console.log(`is valid: ${isValid}`)
+    return isValid
   }
 
   onChangeHandler(id, e) {
@@ -48,18 +74,22 @@ class GameInfo extends Component {
           <div style={{margin: '10px 20px'}}>
             <div>Guesses Left: {this.props.guessesLeft}</div>
             <div>Username: {this.props.username}</div>
+            <div>SecretCode: {JSON.stringify(this.props.secretCode)}</div>
             <Input
               text='Current Guess'
               id='currentGuess'
               placeholder='please enter four digit number'
               onChangeHandler={this.onChangeHandler.bind(this)}
             />
+            {this.state.notification}
           </div>
           <Button
             id='submitGuess'
+            onClick={this.onSubmitGuess.bind(this)}
           >
             Submit Guess
           </Button>
+          <Guesses guesses={this.state.guesses} />
         </Stack>
       </Settings>
     )
