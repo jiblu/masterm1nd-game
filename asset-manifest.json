@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/masterm1nd-game/static/css/main.d1b05096.chunk.css",
-    "main.js": "/masterm1nd-game/static/js/main.406f7def.chunk.js",
-    "main.js.map": "/masterm1nd-game/static/js/main.406f7def.chunk.js.map",
+    "main.css": "/masterm1nd-game/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/masterm1nd-game/static/js/main.e94dd3c2.chunk.js",
+    "main.js.map": "/masterm1nd-game/static/js/main.e94dd3c2.chunk.js.map",
     "runtime-main.js": "/masterm1nd-game/static/js/runtime-main.ce9ae0cf.js",
     "runtime-main.js.map": "/masterm1nd-game/static/js/runtime-main.ce9ae0cf.js.map",
     "static/css/2.4364cc03.chunk.css": "/masterm1nd-game/static/css/2.4364cc03.chunk.css",
-    "static/js/2.87e9f007.chunk.js": "/masterm1nd-game/static/js/2.87e9f007.chunk.js",
-    "static/js/2.87e9f007.chunk.js.map": "/masterm1nd-game/static/js/2.87e9f007.chunk.js.map",
+    "static/js/2.ff5d786c.chunk.js": "/masterm1nd-game/static/js/2.ff5d786c.chunk.js",
+    "static/js/2.ff5d786c.chunk.js.map": "/masterm1nd-game/static/js/2.ff5d786c.chunk.js.map",
     "index.html": "/masterm1nd-game/index.html",
-    "precache-manifest.68cf047e7f18dd88603b52072ba8b7e9.js": "/masterm1nd-game/precache-manifest.68cf047e7f18dd88603b52072ba8b7e9.js",
+    "precache-manifest.08d60e634618e2683570c0366ac0304a.js": "/masterm1nd-game/precache-manifest.08d60e634618e2683570c0366ac0304a.js",
     "service-worker.js": "/masterm1nd-game/service-worker.js",
     "static/css/2.4364cc03.chunk.css.map": "/masterm1nd-game/static/css/2.4364cc03.chunk.css.map",
-    "static/css/main.d1b05096.chunk.css.map": "/masterm1nd-game/static/css/main.d1b05096.chunk.css.map",
-    "static/js/2.87e9f007.chunk.js.LICENSE": "/masterm1nd-game/static/js/2.87e9f007.chunk.js.LICENSE"
+    "static/css/main.5ecd60fb.chunk.css.map": "/masterm1nd-game/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.ff5d786c.chunk.js.LICENSE": "/masterm1nd-game/static/js/2.ff5d786c.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.ce9ae0cf.js",
     "static/css/2.4364cc03.chunk.css",
-    "static/js/2.87e9f007.chunk.js",
-    "static/css/main.d1b05096.chunk.css",
-    "static/js/main.406f7def.chunk.js"
+    "static/js/2.ff5d786c.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.e94dd3c2.chunk.js"
   ]
 }
