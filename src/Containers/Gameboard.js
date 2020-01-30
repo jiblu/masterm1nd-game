@@ -22,9 +22,10 @@ class Gameboard extends Component {
     guesses: [],
     currentGuess: '',
     notification: '',
-    status: 'playing',
     secretCode: this.props.secretCode,
-    guessesLeft: 10
+    guessesLeft: 10,
+    score: 100,
+    showHint: false
   }
 
   onSubmitGuess() {
@@ -115,8 +116,10 @@ class Gameboard extends Component {
         }
       }
       newGuesses.push(newGuess)
+      let newScore = this.state.score - 10
       this.setState({
-        guesses: newGuesses
+        guesses: newGuesses,
+        score: newScore
       })
     }
     return isValid
@@ -125,6 +128,14 @@ class Gameboard extends Component {
   onChangeHandler(id, e) {
     this.setState({
       [id]: e.target.value
+    })
+  }
+
+  buyHint() {
+    let oldScore = this.state.score
+    this.setState({
+      showHint: true,
+      score: oldScore - 30
     })
   }
 
@@ -171,11 +182,14 @@ class Gameboard extends Component {
               >
                 I give up!
               </Button>
+              <Button onClick={this.buyHint.bind(this)}>Buy Hint</Button>
               <div style={{margin: '10px 20px'}}>
                 <TextDisplay text='Username' value={this.props.username} />
                 <TextDisplay text='Guesses Left' value={this.state.guessesLeft} />
                 <TextDisplay text='Level' value={this.props.level} />
                 <TextDisplay text='Viable Range' value={`0 - ${this.props.max}`} />
+                <TextDisplay text='Your Score' value={this.state.score} />
+                {this.state.showHint ? <TextDisplay text='Hint' value={`${this.state.secretCode.slice(0, 2)}XX`} /> : null }
                 {/* <TextDisplay text='Secret Code' value={this.props.secretCode} /> */}
                 <Input
                   text='Current Guess'
