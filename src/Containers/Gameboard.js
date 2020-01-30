@@ -121,6 +121,12 @@ class Gameboard extends Component {
         guesses: newGuesses,
         score: newScore
       })
+      if (newScore === 0) {
+        this.setState({
+          status: 'lose',
+          score: 0
+        })
+      }
     }
     return isValid
   }
@@ -132,10 +138,10 @@ class Gameboard extends Component {
   }
 
   buyHint() {
-    let oldScore = this.state.score
+    let oldScore = this.state.score - 10
     this.setState({
       showHint: true,
-      score: oldScore - 30
+      score: oldScore
     })
   }
 
@@ -149,7 +155,7 @@ class Gameboard extends Component {
             secretCode={this.state.secretCode}
             guessesLeft={this.state.guessesLeft}
             username={this.props.username}
-            score={`${this.state.guessesLeft * 10}%`}
+            score={this.state.score}
           >
             <Guesses guesses={this.state.guesses} />
           </ResultPage>
@@ -162,7 +168,7 @@ class Gameboard extends Component {
             secretCode={this.state.secretCode}
             guessesLeft={this.state.guessesLeft}
             username={this.props.username}
-            score={`${this.state.guessesLeft * 10}%`}
+            score={this.state.score}
           >
             <Guesses guesses={this.state.guesses} />
           </ResultPage>
@@ -182,14 +188,14 @@ class Gameboard extends Component {
               >
                 I give up!
               </Button>
-              <Button onClick={this.buyHint.bind(this)}>Buy Hint</Button>
+              {this.state.showHint ? null : <Button onClick={this.buyHint.bind(this)}>Buy Hint</Button>}
               <div style={{margin: '10px 20px'}}>
                 <TextDisplay text='Username' value={this.props.username} />
                 <TextDisplay text='Guesses Left' value={this.state.guessesLeft} />
                 <TextDisplay text='Level' value={this.props.level} />
                 <TextDisplay text='Viable Range' value={`0 - ${this.props.max}`} />
                 <TextDisplay text='Your Score' value={this.state.score} />
-                {this.state.showHint ? <TextDisplay text='Hint' value={`${this.state.secretCode.slice(0, 2)}XX`} /> : null }
+                {this.state.showHint && this.state.score > 10 ? <TextDisplay text='Hint' value={`${this.state.secretCode.slice(0, 1)}_ _ _`} /> : null }
                 {/* <TextDisplay text='Secret Code' value={this.props.secretCode} /> */}
                 <Input
                   text='Current Guess'
