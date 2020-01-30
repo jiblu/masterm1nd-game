@@ -1,28 +1,20 @@
 # MASTERM1ND
+LinkedIn Coding Challenge
 
-### LinkedIn Coding Challenge
-
-
-## Run Direct In Browser
+## Setup
+# Run Direct In Browser
 
 Open [http://jiblu.github.io/masterm1nd-game/](http://jiblu.github.io/masterm1nd-game/) to view the game directly in the browser without any additional setup.
 
-## Run On Local Computer In Development Mode
+# Run On Local Computer In Development Mode
 
 Open your terminal to the directory you wish to save the repository.
-
 In the project directory, you can run:
-
-### `git clone https://github.com/jiblu/masterm1nd-game.git`
-
+`git clone https://github.com/jiblu/masterm1nd-game.git`
 This will clone down the repo to your local machine.
-
-### `npm install`
-
+`npm install`
 This will install all dependencies required to successful run the app.
-
-### `npm start`
-
+ `npm start`
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
